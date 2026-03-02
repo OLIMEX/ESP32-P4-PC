@@ -1,0 +1,13 @@
+idf_component_register(
+    SRCS
+        "src/pt_display.c"
+        "src/pt_screenprintf.c"
+    INCLUDE_DIRS
+        "include"
+    PRIV_REQUIRES
+        esp_timer
+        esp_lvgl_port
+        lvgl__lvgl
+        esp_lcd
+        esp32_p4_function_ev_board
+)

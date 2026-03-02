@@ -1,0 +1,75 @@
+menu "SD Card Test (sd_card_test)"
+
+config SD_TEST_INIT_DELAY_MS
+    int "Delay after SD power-on (ms)"
+    default 100
+    range 0 2000
+
+config SD_TEST_RETRY_COUNT
+    int "Init retry count (power-cycle retries)"
+    default 2
+    range 0 10
+
+config SD_TEST_MAX_FREQ_KHZ
+    int "SDMMC max frequency (kHz)"
+    default 20000
+    range 400 40000
+    help
+        Conservative default is 20000 (20MHz). You can try 10000 or 400 (probing)
+        for signal integrity debugging.
+
+config SD_TEST_BUS_WIDTH
+    int "SDMMC bus width"
+    default 4
+    range 1 4
+    help
+        Set to 4 for DAT0..DAT3 wiring. Use 1 for debugging.
+
+config SD_TEST_PWR_GPIO
+    int "SD Power control GPIO (-1 = none)"
+    default -1
+
+config SD_TEST_PWR_ON_LEVEL
+    int "SD Power GPIO ON level (0/1)"
+    default 0
+    range 0 1
+
+config SD_TEST_USE_ONCHIP_LDO
+    bool "Enable on-chip LDO power control for SDMMC IO domain (if supported)"
+    default y
+    depends on SOC_SDMMC_IO_POWER_EXTERNAL
+    help
+        Some SoCs/boards require initializing on-chip LDO power control when using specific SDMMC IO pins/domains.
+
+config SD_TEST_LDO_CHAN_ID
+    int "On-chip LDO channel id"
+    default 0
+    depends on SD_TEST_USE_ONCHIP_LDO
+
+config SD_TEST_PIN_CLK
+    int "SDMMC CLK GPIO (-1 = default slot mapping)"
+    default -1
+config SD_TEST_PIN_CMD
+    int "SDMMC CMD GPIO (-1 = default slot mapping)"
+    default -1
+config SD_TEST_PIN_D0
+    int "SDMMC D0 GPIO (-1 = default slot mapping)"
+    default -1
+config SD_TEST_PIN_D1
+    int "SDMMC D1 GPIO (-1 = default slot mapping)"
+    default -1
+config SD_TEST_PIN_D2
+    int "SDMMC D2 GPIO (-1 = default slot mapping)"
+    default -1
+config SD_TEST_PIN_D3
+    int "SDMMC D3 GPIO (-1 = default slot mapping)"
+    default -1
+
+config SD_TEST_PIN_CD
+    int "Card Detect GPIO (-1 = none)"
+    default -1
+config SD_TEST_PIN_WP
+    int "Write Protect GPIO (-1 = none)"
+    default -1
+
+endmenu

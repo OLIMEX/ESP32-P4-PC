@@ -1,0 +1,29 @@
+menu "PT Display / HDMI test"
+
+config PT_BTN_GPIO
+    int "Button GPIO number"
+    default 9
+    help
+        GPIO на бутона за теста.
+
+config PT_BTN_ACTIVE_LOW
+    bool "Button is active low"
+    default y
+
+config PT_BTN_PULLUP
+    bool "Enable internal pull-up on button"
+    default y
+
+config PT_BTN_PULLDOWN
+    bool "Enable internal pull-down on button"
+    default n
+
+config PT_BTN_LONGPRESS_MS
+    int "Long press threshold (ms)"
+    default 2000
+
+config PT_DISPLAY_INIT_DELAY_MS
+    int "Initial delay after HDMI init (ms)"
+    default 300
+
+endmenu

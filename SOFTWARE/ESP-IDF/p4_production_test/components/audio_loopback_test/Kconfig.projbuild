@@ -1,0 +1,62 @@
+menu "Audio Loopback Test (ES8311)"
+    config AUDIO_TEST_I2C_PORT
+        int "I2C port"
+        default 0
+    config AUDIO_TEST_I2C_SDA_GPIO
+        int "I2C SDA GPIO"
+        default 7
+    config AUDIO_TEST_I2C_SCL_GPIO
+        int "I2C SCL GPIO"
+        default 8
+    config AUDIO_TEST_I2C_FREQ_HZ
+        int "I2C frequency (Hz)"
+        default 400000
+
+    config AUDIO_TEST_I2S_PORT
+        int "I2S port"
+        default 0
+    config AUDIO_TEST_I2S_MCLK_GPIO
+        int "I2S MCLK GPIO"
+        default 13
+    config AUDIO_TEST_I2S_DOUT_GPIO
+        int "I2S DOUT (ADOUT) GPIO"
+        default 11
+    config AUDIO_TEST_I2S_BCLK_GPIO
+        int "I2S BCLK (SCLK) GPIO"
+        default 12
+    config AUDIO_TEST_I2S_DIN_GPIO
+        int "I2S DIN (DSDIN) GPIO"
+        default 9
+    config AUDIO_TEST_I2S_WS_GPIO
+        int "I2S WS (LRCK) GPIO"
+        default 10
+
+    config AUDIO_TEST_CODEC_PWR_GPIO
+        int "Codec power control GPIO (set -1 to disable)"
+        default 6
+    config AUDIO_TEST_CODEC_PWR_ACTIVE_HIGH
+        bool "Codec power GPIO active high"
+        default y
+    config AUDIO_TEST_CODEC_PWR_DEFAULT_INPUT
+        bool "Keep codec power GPIO as INPUT (hi-z)"
+        default y
+
+    config AUDIO_TEST_SAMPLE_RATE
+        int "Sample rate (Hz)"
+        default 16000
+    config AUDIO_TEST_BITS_PER_SAMPLE
+        int "Bits per sample"
+        default 16
+    config AUDIO_TEST_CHANNELS
+        int "Channels (1=mono, 2=stereo)"
+        default 1
+    config AUDIO_TEST_DMA_FRAME_SAMPLES
+        int "DMA frame size (samples per channel)"
+        default 512
+    config AUDIO_TEST_TASK_STACK
+        int "Loopback task stack bytes"
+        default 4096
+    config AUDIO_TEST_TASK_PRIO
+        int "Loopback task priority"
+        default 12
+endmenu

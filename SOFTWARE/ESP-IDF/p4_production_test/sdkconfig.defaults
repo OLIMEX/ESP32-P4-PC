@@ -1,0 +1,7 @@
+# Keep defaults minimal; HDMI/LT8912B settings are under BSP menuconfig.
+# You MUST set HDMI to partial buffer (strip/line), small buffer height, and RGB888 in menuconfig.
+
+CONFIG_FREERTOS_HZ=1000
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# If your prototype has no PSRAM, leave SPIRAM disabled (default).
