@@ -1,4 +1,7 @@
 ========================= SETUP ===============
+The project was tested with ESP-IDF v5.5 (if you already have itm just skip to point 5.)
+
+Settup up ESP-IDF 5.5:
 
 1. Download ESP-IDF v5.5:
 
@@ -6,7 +9,7 @@ git clone https://github.com/espressif/esp-idf -b "release/v5.5"
 
 2. Go to esp-idf directory:
 
-cd esp-id
+cd esp-idf
 
 3. install esp-idf:
 
@@ -16,17 +19,17 @@ cd esp-id
 
 . ./export.sh
 
+Compile the project:
+
 5. Go to the project and compile
 
-cd ../p4_hdmi_stable_video
+cd ../p4_production_test
 
 6. Compile:
 
 idf.py build
 
-
 ============= EXAMPLE ==========
-
 
 The Example tests HDMI, SD CARD, USB FLASH, AUDIO.
 After the board boots, you will see red, green and blue rectangles
@@ -39,11 +42,11 @@ The SD card and usb flash must be formated in FAT32.
 
 You can long-press the test to repeat or short-press it to continue
 
-Then the audio test starts. It will produce the sound captured from the mic
- to the headphones. You can long press to end the test or short press to restart
+Then the audio test starts. It will produce the sound captured from the mic to the headphones.
+You can long press to end the test or short press to restart
 
-Then the LAN test starts. It initializes PHY module, then takes IP from DHCP
- and then pings 8.8.8.8 to test conectivity.
+Then the LAN test starts. It initializes PHY module, then takes IP from DHCP 
+and then pings 8.8.8.8 to test conectivity.
 
 
 
