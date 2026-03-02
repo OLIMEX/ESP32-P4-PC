@@ -1,6 +1,6 @@
 ========================= SETUP ===============
 
-The project was tested with ESP-IDF v5.5 (if you already have itm just skip to point 5.)
+The project was tested with ESP-IDF v5.5 (if you already have it just skip to point 5.)
 
 Settup up ESP-IDF 5.5:
 
