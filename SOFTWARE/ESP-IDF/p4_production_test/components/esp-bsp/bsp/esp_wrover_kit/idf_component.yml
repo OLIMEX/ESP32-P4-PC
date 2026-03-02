@@ -1,0 +1,24 @@
+version: "2.0.2"
+description: Board Support Package (BSP) for ESP-WROVER-KIT
+url: https://github.com/espressif/esp-bsp/tree/master/bsp/esp_wrover_kit
+
+targets:
+    - esp32
+
+tags:
+   - bsp
+
+dependencies:
+  idf: ">=4.4.5"
+
+  espressif/esp_lvgl_port:
+    version: "^2"
+    public: true
+    override_path: "../../components/esp_lvgl_port"
+
+  button:
+    version: "^4"
+    public: true
+
+examples:
+  - path: ../../examples/display

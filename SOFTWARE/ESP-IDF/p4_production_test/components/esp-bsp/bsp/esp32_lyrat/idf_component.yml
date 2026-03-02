@@ -1,0 +1,23 @@
+version: "3.0.1"
+description: Board Support Package (BSP) for ESP32-LyraT
+url: https://github.com/espressif/esp-bsp/tree/master/bsp/esp32_lyrat
+
+targets:
+  - esp32
+
+tags:
+  - bsp
+
+dependencies:
+  idf: ">=5.3" # We use I2C Driver-NG from IDF v5.2 but esp-codec-dev supports from v5.3
+
+  button:
+    version: "^4"
+    public: true
+
+  esp_codec_dev:
+    version: "~1.5"
+    public: true
+
+examples:
+  - path: ../../examples/audio

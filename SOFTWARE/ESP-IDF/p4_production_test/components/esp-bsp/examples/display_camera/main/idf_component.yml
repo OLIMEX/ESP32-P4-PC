@@ -1,0 +1,6 @@
+description: BSP Display and camera example
+
+dependencies:
+  esp32_s2_kaluga_kit:
+    version: "*"
+    override_path: "../../../bsp/esp32_s2_kaluga_kit"

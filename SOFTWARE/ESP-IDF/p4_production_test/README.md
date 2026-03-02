@@ -1,41 +1,50 @@
-# ESP32-P4 HDMI "Stable Video" (no full-framebuffer)
+========================= SETUP ===============
 
-Goal: Get **stable HDMI output** on ESP32-P4 with LT8912B-style MIPI-DSI->HDMI bridge, without external PSRAM.
-We avoid full-frame buffers and rely on LVGL + partial draw buffers (like Espressif demos).
+1. Download ESP-IDF v5.5:
 
-## 0) Fetch BSP
-```bash
-cd components
-chmod +x bootstrap.sh
-./bootstrap.sh
-```
+git clone https://github.com/espressif/esp-idf -b "release/v5.5"
 
-## 1) Build (recommended)
-```bash
-. $IDF_PATH/export.sh
-cd ..
+2. Go to esp-idf directory:
 
-rm -rf build sdkconfig sdkconfig.old managed_components dependencies.lock
-idf.py set-target esp32p4
-idf.py reconfigure
-idf.py menuconfig
-```
+cd esp-id
 
-### Menuconfig settings (critical)
-`Board Support Package (ESP32-P4) -> Display -> HDMI (LT8912B)`:
+3. install esp-idf:
 
-- Resolution: **800x600@60Hz** (or start with 640x480@60Hz for stability testing)
-- Color format: **RGB888** (HDMI)
-- Frame buffer mode: **Partial / Line buffer / Strip buffer**
-- Buffer height: **16** (try 24/32 if stable)
-- Double buffer: **OFF**
+./install.sh
 
-Then:
-```bash
+4.  Every time you start-up terminal you must go to esp-idf and source the export.sh script:
+
+. ./export.sh
+
+5. Go to the project and compile
+
+cd ../p4_hdmi_stable_video
+
+6. Compile:
+
 idf.py build
-idf.py -p /dev/ttyACM0 flash monitor
-```
 
-## Notes
-- Seeing "MIPI" in logs is normal: the SoC uses MIPI-DSI/DPI internally to feed the HDMI bridge.
-- If you hit `no memory for frame buffer`, you are still in "full frame buffer" mode or your buffer height is too big.
+
+============= EXAMPLE ==========
+
+
+The Example tests HDMI, SD CARD, USB FLASH, AUDIO.
+After the board boots, you will see red, green and blue rectangles
+flashing on the screen, and then the screen
+will ask to either short-press or long press the BOOT1 button.
+
+If you long press BOOT1, the test starts again.
+If you shor press BOOT1, the test continues SD Card and USB FLASH drive.
+The SD card and usb flash must be formated in FAT32.
+
+You can long-press the test to repeat or short-press it to continue
+
+Then the audio test starts. It will produce the sound captured from the mic
+ to the headphones. You can long press to end the test or short press to restart
+
+Then the LAN test starts. It initializes PHY module, then takes IP from DHCP
+ and then pings 8.8.8.8 to test conectivity.
+
+
+
+
