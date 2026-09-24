@@ -1,0 +1,13 @@
+===
+Hardware revision B
+===
+
+Initial board release.
+
+===
+Hardware revision C
+===
+
+1. U5 changed from TPS62A02ADRLR(SOT-563-6) to TLV62569PDDCR(SOT23-6);
+2. L4 changed from 1.0uH/4.2A/DCR=35mR/20%/2.00x1.60x1.00mm/L2016(PIM201610-1R0MTS00) to 2.2uH/2.1A/PIM201610-2R2MTS00;
+3. C27 and C28 changed from 150pF/50V/2%/NP0/C0402 to NA(150pF/50V/2%/NP0/C0402).
