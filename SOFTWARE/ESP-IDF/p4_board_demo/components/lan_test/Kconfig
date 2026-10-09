@@ -1,0 +1,35 @@
+menu "LAN Test"
+
+config LAN_TEST_PHY_ADDR
+    int "PHY address"
+    default 1
+
+config LAN_TEST_PHY_RST_GPIO
+    int "PHY reset GPIO (-1 = none)"
+    default -1
+
+config LAN_TEST_MDC_GPIO
+    int "SMI MDC GPIO"
+    default 41
+
+config LAN_TEST_MDIO_GPIO
+    int "SMI MDIO GPIO"
+    default 40
+
+config LAN_TEST_RMII_CLK_IN_GPIO
+    int "RMII REF_CLK input GPIO (EMAC_RMII_CLK)"
+    default 50
+
+config LAN_TEST_DHCP_TIMEOUT_MS
+    int "DHCP wait timeout (ms)"
+    default 8000
+
+config LAN_TEST_PING_TARGET
+    string "Optional ping target IPv4 address"
+    default "8.8.8.8"
+    help
+        The demo treats link plus DHCP as the board hardware test. Failure to
+        reach this address is reported as a warning because many networks
+        block ICMP or do not provide Internet access.
+
+endmenu

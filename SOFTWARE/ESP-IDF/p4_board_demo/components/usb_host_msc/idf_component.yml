@@ -1,0 +1,27 @@
+dependencies:
+  idf: '>=5.0'
+  usb:
+    public: true
+    rules:
+    - if: idf_version >=6.0
+    - if: target not in ["linux"]
+    version: ^1.0.0
+description: USB Host MSC driver
+files:
+  exclude:
+  - test_app
+  - host_test
+issues: https://github.com/espressif/esp-usb/issues
+repository: git://github.com/espressif/esp-usb.git
+repository_info:
+  commit_sha: 8ab282ac6cde1970b660fc032b2d33a9c70e8d07
+  path: host/class/msc/usb_host_msc
+targets:
+- esp32s2
+- esp32s3
+- esp32p4
+- esp32h4
+- esp32s31
+- linux
+url: https://github.com/espressif/esp-usb/tree/master/host/class/msc/usb_host_msc
+version: 1.3.0
